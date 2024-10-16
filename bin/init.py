@@ -1,0 +1,1 @@
+"""This script is used to download ffmpeg on the bin folder"""
