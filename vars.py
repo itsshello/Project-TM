@@ -1,0 +1,2 @@
+UPDATE_INTERVAL = 0.5
+MUSIC_DIR = 'songs'
