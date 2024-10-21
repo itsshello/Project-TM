@@ -4,3 +4,4 @@ bin/ffprobe.exe
 __pycache__
 songs/*
 test.*
+test_.*

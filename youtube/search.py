@@ -11,6 +11,11 @@ def search_youtube(query):
         print(f"Title: {title}")
         print(f"Link: {link}\n")
 
+def _youtube_full(query, limit = 2):
+    videos_search = VideosSearch(query, limit=limit)
+    results = videos_search.result()
+    return print(results)
+
 if __name__ == '__main__':
     search_query = input("Enter search query: ")
-    search_youtube(search_query)
+    _youtube_full(search_query)
