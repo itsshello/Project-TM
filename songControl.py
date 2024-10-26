@@ -26,6 +26,7 @@ def play_audio(song_path):
         stream.start()
 
         is_playing = True
+    elif current_song == song_path: current_frame = 0; is_playing = True
 
 def callback(outdata, frames, time, status):
     global current_frame, audio_data

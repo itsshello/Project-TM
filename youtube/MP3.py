@@ -1,9 +1,10 @@
 import os
 import subprocess
 
-ffmpeg_path = '../bin/ffmpeg.exe'
+ffmpeg_path = './bin/ffmpeg.exe'
 
-def replace_extension(filename, extension='mp3'):
+extension = 'wav'
+def replace_extension(filename, extension=extension):
     file_name, _ = os.path.splitext(filename)
     return f"{file_name}.{extension}"
 
@@ -46,5 +47,32 @@ def toMP3(fileToConvert, output_file='Optional'):
     except subprocess.CalledProcessError as e:
         print(f"Error occurred during conversion: {e}")
 
-if __name__ == '__main__':
-    toMP3(os.path.join(os.path.dirname(os.path.realpath('.')), 'songs/Discord’s Discovery Feature is perfectly balanced....webm'), output_file='Optional')
+
+def run_ffmpeg(input_file, output_file=""):
+    if output_file == '':
+        output_file = replace_extension(input_file)
+
+    command = [ffmpeg_path, '-i', input_file, output_file]
+    print("Running command:", ' '.join(command))
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8")
+    
+    while True:
+        output = process.stderr.readline()        
+        if output == "" and process.poll() is not None:  break
+        if output: print(output.strip())
+        if process.stdin: process.stdin.write('y\n');
+    
+    process.wait()
+
+    if process.returncode == 0:
+        print(f"Conversion successful: {output_file}")
+        
+        if not input_file.endswith('.mp3'):
+            try:
+                os.remove(input_file)
+                print(f"Deleted: {input_file}")
+            except OSError as e:
+                print(f"Error deleting file {input_file}: {e}")
+    else:
+        print(f"Conversion failed with return code: {process.returncode}")
+    print(f"Conversion complete!\n {input_file} -> {output_file}")
