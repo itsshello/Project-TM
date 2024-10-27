@@ -21,9 +21,16 @@ BOTH_SKIPS = 10               # 10 sec
 SKIP_FORWARD  = BOTH_SKIPS    # Set it to a number to customize [ sec ]
 SKIP_BACKWARD = BOTH_SKIPS    # Set it to a number to customize [ sec ]
 
+PLAY_BUTTON_LABLE_DEFULT = '[play]'
+PLAY_BUTTON_LABLE_PLAY   = '░play░'
+PLAY_BUTTON_LABLE_PAUSE  = '█play█'
+
+SKIP_BACKWARD_LABLE = '<[◄]|'
+SKIP_FORWARD_LABLE  = '|[►]>'
+
 # Search
 YT_MAX_RESULTS_SEARCH = 10    # Set it high or less to get more or less results
-IMAGE_THUMNAIL_ASKII  = False
+# IMAGE_THUMNAIL_ASKII  = False [Could be added future]
 
 # System 
 LOGS_PANNEL_MAX_LOOGS = 40

@@ -142,16 +142,16 @@ search_ = urwid.LineBox(searchBar_edit, title="")
 # Button Funtions
 def playerControls_Suffel(button)    : ...
 def playerControls_Previouse(button) :    skip_backward()
-def playerControls_Play(button)      :    pause_audio();   button.set_label(' <|*|> ') if sC.is_playing else button.set_label(' <| |> ')
+def playerControls_Play(button)      :    pause_audio();   button.set_label(PLAY_BUTTON_LABLE_PLAY) if sC.is_playing else button.set_label(PLAY_BUTTON_LABLE_PAUSE)
 def playerControls_Next(button)      :    skip_forward()
 def playerControls_Repeat(button)    : ...
 
 # Buttons
-player_Controls_Suffel    = urwid.Button("[S]",    align='center');   urwid.connect_signal(player_Controls_Suffel,    'click',  playerControls_Suffel)
-player_Controls_Previouse = urwid.Button("[P]",    align='center');   urwid.connect_signal(player_Controls_Previouse, 'click',  playerControls_Previouse)
-player_Controls_Play      = urwid.Button("[Play]", align='center');   urwid.connect_signal(player_Controls_Play,      'click',  playerControls_Play)
-player_Controls_Next      = urwid.Button("[N]",    align='center');   urwid.connect_signal(player_Controls_Next,      'click',  playerControls_Next)
-player_Controls_Repeat    = urwid.Button("[R]",    align='center');   urwid.connect_signal(player_Controls_Repeat,    'click',  playerControls_Repeat)
+player_Controls_Suffel    = urwid.Button("[S]",                    align='center');   urwid.connect_signal(player_Controls_Suffel,    'click',  playerControls_Suffel)
+player_Controls_Previouse = urwid.Button(SKIP_BACKWARD_LABLE,      align='center');   urwid.connect_signal(player_Controls_Previouse, 'click',  playerControls_Previouse)
+player_Controls_Play      = urwid.Button(PLAY_BUTTON_LABLE_DEFULT, align='center');   urwid.connect_signal(player_Controls_Play,      'click',  playerControls_Play)
+player_Controls_Next      = urwid.Button(SKIP_FORWARD_LABLE,       align='center');   urwid.connect_signal(player_Controls_Next,      'click',  playerControls_Next)
+player_Controls_Repeat    = urwid.Button("[R]",                    align='center');   urwid.connect_signal(player_Controls_Repeat,    'click',  playerControls_Repeat)
 
 # Song progress bar 
 progress_bar = urwid.Text("No Songs Playing . .. ", align='center')
