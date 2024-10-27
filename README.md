@@ -37,11 +37,3 @@ python main.py
 
 ## Configurations
 Edit `vars.py` to adjust settings.
-
----
-
-### Notes:
-1. Removed unused imports (`threading`, `time`, `subprocess`) from the dependencies list in `pip install`.
-2. Added a slight wording polish for clarity.
-
-Let me know if there are any additional details or if you'd like me to make further adjustments!
