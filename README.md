@@ -26,7 +26,7 @@ cd <project directory>
 Install dependencies:  
 
 ~~~bash  
-pip install yt-dlp youtube-search-python soundfile sounddevice urwid
+pip install yt-dlp youtube-search-python soundfile sounddevice urwid pillow request
 ~~~
 
 Run the command:
